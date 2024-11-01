@@ -1,1 +1,1 @@
-# BDAula01
+# Repositório com os códigos relacionados ao BDAula01
