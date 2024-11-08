@@ -20,17 +20,30 @@ public class ThreadServer extends Thread {
         try {
             ObjectOutputStream out = new ObjectOutputStream(clienteSocket.getOutputStream());
             ObjectInputStream in = new ObjectInputStream(clienteSocket.getInputStream());
-            
-            int id = in.readInt();
-            System.out.println("ID recebido: " +id);
-            
-            PessoaDAO pdao = new PessoaDAO();
-            Pessoa p = pdao.getPessoa(id);
 
+            // para consultar:
+            
+            // int id = in.readInt();
+            // System.out.println("ID recebido: " +id);
+            
+            //PessoaDAO pdao = new PessoaDAO();
+            //Pessoa p = pdao.getPessoa(id);
+
+            //out.writeObject(p);
+
+            // para cadastrar:
+            Pessoa p = (Pessoa) in.readObject();
+            PessoaDAO pDAO = PessoaDAO();
+            pDAO.inserir(p);
             out.writeObject(p);
 
+        // consulta    
         } catch (IOException ex) {
             System.out.println("Erro ao lidar com o cliente");
+
+        //cadastro
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ThreadServer.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
