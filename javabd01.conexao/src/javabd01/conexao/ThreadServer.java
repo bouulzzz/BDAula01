@@ -24,7 +24,6 @@ public class ThreadServer extends Thread {
             int id = in.readInt();
             System.out.println("ID recebido: " +id);
             
-             // Simule a obtenção de uma Pessoa a partir do ID
             PessoaDAO pdao = new PessoaDAO();
             Pessoa p = pdao.getPessoa(id);
 
