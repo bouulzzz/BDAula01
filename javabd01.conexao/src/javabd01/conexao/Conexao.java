@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package javabd01.conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-/**
- *
- * @author iagov
- */
 public class Conexao {
     public Connection getConexao(){
         try{
